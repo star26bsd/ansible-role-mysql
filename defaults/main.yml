@@ -15,9 +15,6 @@ mysql_configs:
 - { name: 'table_cache', value: '256'}
 
 mysql_db: []
-
 mysql_users: []
-
 mysql_repl_user: []
-
 mysql_repl_role: master

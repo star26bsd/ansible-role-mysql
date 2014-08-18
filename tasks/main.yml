@@ -1,5 +1,4 @@
 ---
-
 - include: install.yml
   when: skip_install is not defined or skip_install != "true"
 
