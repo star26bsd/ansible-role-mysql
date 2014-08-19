@@ -43,6 +43,12 @@
   mysql_db: name={{ item.name }} state=present
   with_items: mysql_db
   when: mysql_db|lower() != 'none'
+  register: db_create_result
+
+- name: Import initial database data
+  mysql_db: name={{ item.item.name }} target={{ item.item.import_data }} state=import
+  when: item.changed and item.item.import_data is defined
+  with_items: db_create_result.results
 
 - name: Create the database users
   mysql_user: name={{ item.name }}  password={{ item.pass|default("foobar") }}  

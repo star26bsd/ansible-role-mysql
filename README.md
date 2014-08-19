@@ -25,10 +25,11 @@ them are as follows:
       mysql_root_db_pass: foobar       # The root DB password
 
       # A list that has all the databases to be
-      # created and their replication status:
+      # created and their replication status, with optional initial data import:
       mysql_db:                                 
            - name: foo
              replicate: yes
+             import_data: /data/dump.sql
            - name: bar
              replicate: no
 
