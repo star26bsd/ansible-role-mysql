@@ -2,7 +2,7 @@
 - name: Add the OS specific variables
   include_vars: "{{ ansible_os_family }}.yml"
 
-- name: Install the mysql packages in Redhat derivatives
+- name: Install the mysql packages in RedHat derivatives
   yum: name={{ item }} state=installed
   with_items: mysql_pkgs
   when: ansible_os_family == 'RedHat'
@@ -13,5 +13,5 @@
   environment: env
   when: ansible_os_family == 'Debian'
 
-- name: Start the mysql services Redhat
+- name: Start the mysql services RedHat
   service: name={{ mysql_service }} state=started enabled=yes
